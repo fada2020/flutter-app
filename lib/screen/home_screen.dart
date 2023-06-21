@@ -1,3 +1,4 @@
+import 'package:ex_f/widget/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 import '../model/model_movie.dart';
@@ -11,7 +12,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Movie.fromMap({
       'title': '사랑의 불시착',
       'keyword': '사랑/로맨스/판타지',
-      'poster': 'images/test_movie_1.png',
+      'poster': 'test_movie_1.png',
       'like': false,
     })
   ];
@@ -23,7 +24,16 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return TopBar();
+    return ListView(
+      children: [
+        Stack(
+          children: [
+            CarouselImage(movies: movies),
+            TopBar(),
+          ],
+        )
+      ],
+    );
   }
 }
 
